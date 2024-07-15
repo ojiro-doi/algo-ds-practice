@@ -4,13 +4,14 @@
 // 線形探索
 int search(int A[], int n, int key)
 {
-  int i = 0;
-  A[n] = key;
-  while (A[i] != key)
+  int i=0;
+  A[n]=key;//番兵
+  //繰り返しを抜けるのはkeyか番兵と一致するとき
+  while(A[i]!=key)
   {
     i++;
   }
-  // iがnになると、keyが見つからなかったことを示す
+  // iがnになるとfalseで、keyが見つからなかったことを示す
   return i != n;
 }
 
