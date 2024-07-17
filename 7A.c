@@ -53,15 +53,15 @@ void printChildren(int u)
 // 節点の深さ(再帰的に全ての節点の深さを求める)
 void setDepth(int u, int p)
 {
-  // 　根から求めていく
+  // 根から求めていく
   D[u] = p;
   if (T[u].r != NIL)
   {
-    setDepth(T[u].r, p);
+    setDepth(T[u].r, p); // 再帰
   }
   if (T[u].l != NIL)
   {
-    setDepth(T[u].l, p + 1);
+    setDepth(T[u].l, p + 1); // 再帰
   }
 }
 
@@ -100,7 +100,7 @@ int main()
     }
   }
 
-  // 根を探す
+  // 根を探す r:根の節点
   for (i = 0; i < n; i++)
   {
     if (T[i].p == NIL)
@@ -108,7 +108,9 @@ int main()
       r = i;
     }
   }
+
   setDepth(r, 0);
+
   for (i = 0; i < n; i++)
   {
     printChildren(i);
